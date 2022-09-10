@@ -1,6 +1,7 @@
-import express from 'express'
+import express, { Router } from 'express'
 
 import './database/connection.js'
+import * as router from './routes/index.js'
 
 class App {
   constructor () {
@@ -10,6 +11,10 @@ class App {
 
   middlewares() {
     this.server.use(express.json())
+  }
+
+  routes() {
+    router(this.server)
   }
 }
 
